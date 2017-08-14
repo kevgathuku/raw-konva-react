@@ -8,7 +8,6 @@ class App extends Component {
     this.state = {
       color: 'green'
     };
-    this.handleClick = this.handleClick.bind(this);
   }
   renderKonva(container) {
     let stage = new Konva.Stage({
@@ -30,11 +29,12 @@ class App extends Component {
     stage.add(layer);
   }
 
-  handleClick() {
+  handleClick = () => {
     this.setState({
       color: Konva.Util.getRandomColor()
     });
-  }
+  };
+
   render() {
     return (
       <div ref={ref => this.renderKonva(ref)} onClick={this.handleClick} />
